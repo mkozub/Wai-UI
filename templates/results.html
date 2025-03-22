@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Results - Waterman.AI{% endblock %}
+
+{% block content %}
+<section class="results-page">
+    <div class="submission-summary">
+        <h2>Forecast Optimized for</h2>
+        <div class="summary-details">
+            <div class="summary-item">
+                <span class="summary-label">Zip Code:</span>
+                <span class="summary-value">{{ zip_code }}</span>
+            </div>
+            
+            {% if conditions %}
+            <div class="summary-item">
+                <span class="summary-label">Ideal Conditions:</span>
+                <span class="summary-value">{{ conditions }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="results-container">
+        <h2>Results</h2>
+        
+        <div class="progress-container">
+            <div class="progress-status">
+                <div id="status-text">Analysis complete!</div>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar" style="width: 100%;"></div>
+            </div>
+        </div>
+        
+        <div class="result-content">
+            <p id="result-text">{{ result }}</p>
+        </div>
+        
+        <div class="result-visualization">
+            <p>This area will show detailed analysis based on your preferences and local conditions.</p>
+        </div>
+    </div>
+    
+    <div class="action-buttons results-actions">
+        <a href="{{ url_for('index') }}" class="back-button">Back to Home</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Simple animation for demonstration purposes
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressBar = document.getElementById('progress-bar');
+        const statusText = document.getElementById('status-text');
+        
+        // Reset progress bar for animation
+        progressBar.style.width = '0%';
+        statusText.innerText = 'Starting analysis...';
+        
+        // Animate progress bar
+        setTimeout(() => {
+            progressBar.style.width = '30%';
+            statusText.innerText = 'Gathering data...';
+        }, 500);
+        
+        setTimeout(() => {
+            progressBar.style.width = '60%';
+            statusText.innerText = 'Processing results...';
+        }, 1500);
+        
+        setTimeout(() => {
+            progressBar.style.width = '100%';
+            statusText.innerText = 'Analysis complete!';
+        }, 2500);
+    });
+</script>
+{% endblock %}

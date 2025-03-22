@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="main-interface">
+    <form action="/results" method="get" class="input-form" id="dataForm">
+        <div class="text-fields">
+            <div class="field-container">
+                <label for="location"><strong>Zip Code</strong></label>
+                <small class="field-description">Enter a valid 5-digit zip code</small>
+                <input type="text" id="location" name="location" placeholder="Enter your zip code..." required pattern="[0-9]{5}" title="Please enter a valid 5-digit zip code">
+            </div>
+            
+            <div class="field-container">
+                <label for="free_text"><strong>Describe Your Ideal Conditions</strong></label>
+                <small class="field-description">wind, tide, sun, swell, temperature, or anything else.</small>
+                <textarea id="free_text" name="free_text" placeholder="E.g. I like 20+ knot winds from the south for kiteboarding, or calm mornings at low tide for fishing."></textarea>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button type="submit" class="submit-button">Submit</button>
+            <button type="button" class="recents-button" onclick="showRecents()">Recents</button>
+        </div>
+    </form>
+</section>
+
+<div class="modal" id="recentsModal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeRecents()">&times;</span>
+        <h2>Recent Entries</h2>
+        <div class="recents-list" id="recentsList">
+            <!-- Recent entries with static data for UI display -->
+            <div class="recent-item">
+                <div class="recent-timestamp">2025-03-21 15:32:57</div>
+                <div class="recent-details">
+                    <p><strong>Zip Code:</strong> 02649</p>
+                    <p><strong>Ideal Conditions:</strong> Strong winds from the east</p>
+                </div>
+            </div>
+            <div class="recent-item">
+                <div class="recent-timestamp">2025-03-20 21:42:45</div>
+                <div class="recent-details">
+                    <p><strong>Zip Code:</strong> 02649</p>
+                    <p><strong>Ideal Conditions:</strong> Morning swell with calm afternoons</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
