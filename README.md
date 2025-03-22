@@ -1,33 +1,42 @@
-Waterman.AI
+# Waterman.AI
+
 A sleek, minimalist Flask web app for ocean activity forecasts.
-Overview
+
+## Overview
+
 Waterman.AI provides personalized forecasts for water activities based on location and preferred conditions. This repo contains a clean frontend implementation ready for backend integration.
-Features
 
-Simple, modern dark-mode UI
-Location-based forecast requests
-Customizable ideal conditions input
-Responsive design for all devices
+## Features
 
-Installation
+- Simple, modern dark-mode UI
+- Location-based forecast requests
+- Customizable ideal conditions input
+- Responsive design for all devices
 
-Clone the repository
+## Installation
 
-bashCopygit clone https://github.com/yourusername/waterman-ai.git
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/waterman-ai.git
 cd waterman-ai
+```
 
-Install dependencies
+2. Install dependencies
+```bash
+pip install flask
+```
 
-bashCopypip install flask
+3. Run the application
+```bash
+python app.py
+```
 
-Run the application
+4. Access at `http://127.0.0.1:5000`
 
-bashCopypython app.py
+## Project Structure
 
-Access at http://127.0.0.1:5000
-
-Project Structure
-Copywaterman-ai/
+```
+waterman-ai/
 ├── app.py                  # Flask application
 ├── templates/              # HTML templates
 │   ├── base.html           # Base template with layout
@@ -38,9 +47,16 @@ Copywaterman-ai/
     │   └── style.css       # Main CSS
     └── js/                 # JavaScript
         └── main.js         # Main JS functionality
-Contributing
+```
+
+## Contributing
+
 Contributions are welcome! Feel free to submit a Pull Request.
-License
+
+## License
+
 MIT
+
+---
 
 Created by Mike Kozub
